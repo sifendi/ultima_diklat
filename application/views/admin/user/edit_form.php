@@ -24,31 +24,37 @@
 				</div>
 				<?php endif; ?>
 
+				<!-- Card  -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/document/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
+
+						<a href="<?php echo site_url('admin/products/') ?>"><i class="fas fa-arrow-left"></i>
+							Back</a>
 					</div>
 					<div class="card-body">
 
-						<form action="<?php base_url('admin/document/add') ?>" method="post" enctype="multipart/form-data" >
+						<form action="<?php base_url(" admin/product/edit") ?>" method="post"
+							enctype="multipart/form-data" >
+
+							<input type="hidden" name="id" value="<?php echo $product->header_document_id?>" />
+
 							<div class="form-group">
 								<label for="name">Name*</label>
 								<input class="form-control <?php echo form_error('name') ? 'is-invalid':'' ?>"
-								 type="text" name="name" placeholder="Document name" />
+								 type="text" name="name" placeholder="Product name" value="<?php echo $product->name ?>" />
 								<div class="invalid-feedback">
 									<?php echo form_error('name') ?>
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="type_unit">Unit*</label>
-								<input class="form-control <?php echo form_error('type_unit') ? 'is-invalid':'' ?>"
-								 type="number" name="type_unit" min="0" placeholder="Unit" />
+								<label for="price">Unit</label>
+								<input class="form-control <?php echo form_error('Unit') ? 'is-invalid':'' ?>"
+								 type="number" name="type_unit" min="0" placeholder="Unit" value="<?php echo $product->type_unit ?>" />
 								<div class="invalid-feedback">
-									<?php echo form_error('type_unit') ?>
+									<?php echo form_error('unit') ?>
 								</div>
 							</div>
-
 
 							<input class="btn btn-success" type="submit" name="btn" value="Save" />
 						</form>
@@ -71,7 +77,6 @@
 
 		</div>
 		<!-- /#wrapper -->
-
 
 		<?php $this->load->view("admin/_partials/scrolltop.php") ?>
 

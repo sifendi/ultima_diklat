@@ -21,7 +21,7 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/document/add') ?>"><i class="fas fa-plus"></i> Add New</a>
+						<a href="<?php echo site_url('admin/user/add') ?>"><i class="fas fa-plus"></i> Add New</a>
 					</div>
 					<div class="card-body">
 
@@ -30,29 +30,27 @@
 								<thead>
 									<tr>
 										<th>No</th>
-										<th>Name</th>
+										<th>Username</th>
 										<th>Unit</th>
 										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
 									
-									<?php $no =1; foreach ($products as $product): ?>
+									<?php $no =1; foreach ($users as $user): ?>
 									<tr>
 										<td width="50"><?php echo $no ?></td>
 										<td width="350">
-											<?php echo $product->name ?>
+											<?php echo $user->email ?>
 										</td>
 										<td width="50">
-											<?php echo "Unit ".$product->type_unit ?>
+											<?php echo "Unit ".$user->user_type ?>
 										</td>
 										
 										<td width="300">
-											<a href="<?php echo site_url('admin/document/detail/'.$product->header_document_id) ?>"
-											 class="btn btn-small"><i class="fas fa-plus"></i> Detail</a>
-											<a href="<?php echo site_url('admin/document/edit/'.$product->header_document_id) ?>"
+											<a href="<?php echo site_url('admin/user/edit/'.$user->id_user) ?>"
 											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-											<a onclick="deleteConfirm('<?php echo site_url('admin/document/delete/'.$product->header_document_id) ?>')"
+											<a onclick="deleteConfirm('<?php echo site_url('admin/user/delete/'.$user->id_user) ?>')"
 											 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
 										</td>
 									</tr>

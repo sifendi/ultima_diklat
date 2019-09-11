@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
  
-class User extends CI_Controller {
+class Auth extends CI_Controller {
  
 	function __construct(){
 		parent::__construct();
@@ -25,15 +25,15 @@ class User extends CI_Controller {
 		$this->load->library('session');
 		$email = $_POST['username'];
 		$password = $_POST['password'];
-		$data = $this->users_model->login($email, $password);
+		$data = $this->users_model->login($email, md5($password));
 
 		if($data['user_type']==1){
 			$this->session->set_userdata('user', $data);
-			redirect('admin/products');
+			redirect('admin/document');
 		}
 		else if ($data['user_type'] >= 2){
 			$this->session->set_userdata('user', $data);
-			redirect('unit/products');
+			redirect('unit/document');
 		}
 		else{
 			header('location:'.base_url().$this->index());
@@ -44,7 +44,6 @@ class User extends CI_Controller {
 	public function home(){
 		//load session library
 		$this->load->library('session');
- 
 		//restrict users to go to home if not logged in
 		if($this->session->userdata('user')){
 			$this->load->view('home');

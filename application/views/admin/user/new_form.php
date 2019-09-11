@@ -26,27 +26,27 @@
 
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/document/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
+						<a href="<?php echo site_url('admin/user/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
 					</div>
 					<div class="card-body">
 
-						<form action="<?php base_url('admin/document/add') ?>" method="post" enctype="multipart/form-data" >
+						<form action="<?php base_url('admin/user/add') ?>" method="post" enctype="multipart/form-data" >
 							<div class="form-group">
-								<label for="name">Name*</label>
-								<input class="form-control <?php echo form_error('name') ? 'is-invalid':'' ?>"
-								 type="text" name="name" placeholder="Document name" />
+								<label for="name">Username*</label>
+								<input class="form-control <?php echo form_error('email') ? 'is-invalid':'' ?>"
+								 type="text" name="email" placeholder="Username" />
 								<div class="invalid-feedback">
-									<?php echo form_error('name') ?>
+									<?php echo form_error('email') ?>
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="type_unit">Unit*</label>
-								<input class="form-control <?php echo form_error('type_unit') ? 'is-invalid':'' ?>"
-								 type="number" name="type_unit" min="0" placeholder="Unit" />
-								<div class="invalid-feedback">
-									<?php echo form_error('type_unit') ?>
-								</div>
+								<label for="type_unit">Jenis User*</label>
+								<select  class="form-control" name="user_type" id="user_type" class="mdb-select md-form">
+									<option value="1">Unit 1</option>
+									<option value="2">Unit 2</option>
+									<option value="3">Unit 3</option>
+								</select>
 							</div>
 
 

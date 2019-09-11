@@ -11,7 +11,7 @@
       <div class="modal-body">Pilih "Logout" untuk menutup aplikasi !</div>
       <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-danger" href="<?php echo site_url('user/logout')?>">Logout</a>
+        <a class="btn btn-danger" href="<?php echo site_url('Auth/logout')?>">Logout</a>
       </div>
     </div>
   </div>

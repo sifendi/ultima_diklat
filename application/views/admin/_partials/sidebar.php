@@ -13,18 +13,13 @@
             <span>Document</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <a class="dropdown-item" href="<?php echo site_url('admin/products/add') ?>">New Document</a>
-            <a class="dropdown-item" href="<?php echo site_url('admin/products') ?>">List Document</a>
+            <a class="dropdown-item" href="<?php echo site_url('admin/document/add') ?>">New Document</a>
+            <a class="dropdown-item" href="<?php echo site_url('admin/document') ?>">List Document</a>
         </div>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="<?php echo site_url('admin/user')?>">
             <i class="fas fa-fw fa-users"></i>
             <span>Users</span></a>
     </li>
-    <!-- <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Settings</span></a>
-    </li> -->
 </ul>
