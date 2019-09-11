@@ -41,7 +41,7 @@
 		        	<form class="login100-form validate-form" method="POST" action="<?php echo base_url(); ?>index.php/user/login">
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
 						<span class="label-input100">Username</span>
-						<input class="input100" type="email" required name="email" placeholder="Enter username">
+						<input class="input100" type="text" required name="username" placeholder="Enter username">
 						<span class="focus-input100"></span>
 					</div>
 
@@ -63,6 +63,15 @@
 						</button>
 					</div>
 				</form>
+				<?php
+					if($this->session->flashdata('error')){
+						?>
+						<div class="alert alert-danger text-center" style="margin-top:20px;">
+							<?php echo $this->session->flashdata('error'); ?>
+						</div>
+						<?php
+					}
+				?>
 			</div>
 		</div>
 	</div>
