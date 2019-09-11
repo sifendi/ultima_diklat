@@ -2,13 +2,11 @@
 
 class Product_model extends CI_Model
 {
-    private $_table = "products";
+    private $_table = "header_document";
 
-    public $product_id;
+    public $header_document_id;
     public $name;
-    public $price;
-    public $image = "default.jpg";
-    public $description;
+    public $type_unit;
 
     public function rules()
     {
@@ -17,13 +15,9 @@ class Product_model extends CI_Model
             'label' => 'Name',
             'rules' => 'required'],
 
-            ['field' => 'price',
-            'label' => 'Price',
-            'rules' => 'numeric'],
-            
-            ['field' => 'description',
-            'label' => 'Description',
-            'rules' => 'required']
+            ['field' => 'type_unit',
+            'label' => 'unit',
+            'rules' => 'numeric']
         ];
     }
 
@@ -34,31 +28,29 @@ class Product_model extends CI_Model
     
     public function getById($id)
     {
-        return $this->db->get_where($this->_table, ["product_id" => $id])->row();
+        return $this->db->get_where($this->_table, ["header_document_id" => $id])->row();
     }
 
     public function save()
     {
         $post = $this->input->post();
-        $this->product_id = uniqid();
+        $this->header_document_id = uniqid();
         $this->name = $post["name"];
-        $this->price = $post["price"];
-        $this->description = $post["description"];
+        $this->type_unit = $post["type_unit"];
         $this->db->insert($this->_table, $this);
     }
 
     public function update()
     {
         $post = $this->input->post();
-        $this->product_id = $post["id"];
+        $this->header_document_id = $post["id"];
         $this->name = $post["name"];
-        $this->price = $post["price"];
-        $this->description = $post["description"];
-        $this->db->update($this->_table, $this, array('product_id' => $post['id']));
+        $this->type_unit = $post["type_unit"];
+        $this->db->update($this->_table, $this, array('header_document_id' => $post['id']));
     }
 
     public function delete($id)
     {
-        return $this->db->delete($this->_table, array("product_id" => $id));
+        return $this->db->delete($this->_table, array("header_document_id" => $id));
     }
 }

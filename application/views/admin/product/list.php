@@ -29,35 +29,33 @@
 							<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
 								<thead>
 									<tr>
+										<th>No</th>
 										<th>Name</th>
-										<th>Price</th>
-										<th>Photo</th>
-										<th>Description</th>
+										<th>Unit</th>
 										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
-									<?php foreach ($products as $product): ?>
+									
+									<?php $no =1; foreach ($products as $product): ?>
 									<tr>
+										<td><?php echo $no ?></td>
 										<td width="150">
 											<?php echo $product->name ?>
 										</td>
 										<td>
-											<?php echo $product->price ?>
+											<?php echo "Unit ".$product->type_unit ?>
 										</td>
-										<td>
-											<img src="<?php echo base_url('upload/product/'.$product->image) ?>" width="64" />
-										</td>
-										<td class="small">
-											<?php echo substr($product->description, 0, 120) ?>...</td>
+										
 										<td width="250">
-											<a href="<?php echo site_url('admin/products/edit/'.$product->product_id) ?>"
+											<a href="<?php echo site_url('admin/products/edit/'.$product->header_document_id) ?>"
 											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-											<a onclick="deleteConfirm('<?php echo site_url('admin/products/delete/'.$product->product_id) ?>')"
+											<a onclick="deleteConfirm('<?php echo site_url('admin/products/delete/'.$product->header_document_id) ?>')"
 											 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
 										</td>
 									</tr>
-									<?php endforeach; ?>
+									
+									<?php $no++; endforeach; ?>
 
 								</tbody>
 							</table>

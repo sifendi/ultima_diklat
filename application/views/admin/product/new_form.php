@@ -41,32 +41,14 @@
 							</div>
 
 							<div class="form-group">
-								<label for="price">Price*</label>
-								<input class="form-control <?php echo form_error('price') ? 'is-invalid':'' ?>"
-								 type="number" name="price" min="0" placeholder="Product price" />
+								<label for="type_unit">Unit*</label>
+								<input class="form-control <?php echo form_error('type_unit') ? 'is-invalid':'' ?>"
+								 type="number" name="type_unit" min="0" placeholder="Unit" />
 								<div class="invalid-feedback">
-									<?php echo form_error('price') ?>
+									<?php echo form_error('type_unit') ?>
 								</div>
 							</div>
 
-
-							<div class="form-group">
-								<label for="name">Photo</label>
-								<input class="form-control-file <?php echo form_error('price') ? 'is-invalid':'' ?>"
-								 type="file" name="image" />
-								<div class="invalid-feedback">
-									<?php echo form_error('image') ?>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label for="name">Description*</label>
-								<textarea class="form-control <?php echo form_error('description') ? 'is-invalid':'' ?>"
-								 name="description" placeholder="Product description..."></textarea>
-								<div class="invalid-feedback">
-									<?php echo form_error('description') ?>
-								</div>
-							</div>
 
 							<input class="btn btn-success" type="submit" name="btn" value="Save" />
 						</form>

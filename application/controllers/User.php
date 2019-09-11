@@ -26,12 +26,12 @@ class User extends CI_Controller {
 		$email = $_POST['username'];
 		$password = $_POST['password'];
 		$data = $this->users_model->login($email, $password);
- 
+
 		if($data['user_type']==1){
 			$this->session->set_userdata('user', $data);
 			redirect('admin/products');
 		}
-		else if ($data['user_type'] == 2){
+		else if ($data['user_type'] >= 2){
 			$this->session->set_userdata('user', $data);
 			redirect('unit/products');
 		}

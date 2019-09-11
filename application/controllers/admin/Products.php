@@ -17,12 +17,10 @@ class Products extends CI_Controller
         $this->load->view("admin/product/list", $data);
     }
 
-    public function add()
-    {
+    public function add(){
         $product = $this->product_model;
         $validation = $this->form_validation;
         $validation->set_rules($product->rules());
-
         if ($validation->run()) {
             $product->save();
             $this->session->set_flashdata('success', 'Berhasil disimpan');

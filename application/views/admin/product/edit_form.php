@@ -36,7 +36,7 @@
 						<form action="<?php base_url(" admin/product/edit") ?>" method="post"
 							enctype="multipart/form-data" >
 
-							<input type="hidden" name="id" value="<?php echo $product->product_id?>" />
+							<input type="hidden" name="id" value="<?php echo $product->header_document_id?>" />
 
 							<div class="form-group">
 								<label for="name">Name*</label>
@@ -48,31 +48,11 @@
 							</div>
 
 							<div class="form-group">
-								<label for="price">Price</label>
-								<input class="form-control <?php echo form_error('price') ? 'is-invalid':'' ?>"
-								 type="number" name="price" min="0" placeholder="Product price" value="<?php echo $product->price ?>" />
+								<label for="price">Unit</label>
+								<input class="form-control <?php echo form_error('Unit') ? 'is-invalid':'' ?>"
+								 type="number" name="type_unit" min="0" placeholder="Unit" value="<?php echo $product->type_unit ?>" />
 								<div class="invalid-feedback">
-									<?php echo form_error('price') ?>
-								</div>
-							</div>
-
-
-							<div class="form-group">
-								<label for="name">Photo</label>
-								<input class="form-control-file <?php echo form_error('price') ? 'is-invalid':'' ?>"
-								 type="file" name="image" />
-								<input type="hidden" name="old_image" value="<?php echo $product->image ?>" />
-								<div class="invalid-feedback">
-									<?php echo form_error('image') ?>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label for="name">Description*</label>
-								<textarea class="form-control <?php echo form_error('description') ? 'is-invalid':'' ?>"
-								 name="description" placeholder="Product description..."><?php echo $product->description ?></textarea>
-								<div class="invalid-feedback">
-									<?php echo form_error('description') ?>
+									<?php echo form_error('unit') ?>
 								</div>
 							</div>
 
