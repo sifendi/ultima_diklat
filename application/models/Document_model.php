@@ -3,6 +3,7 @@
 class Document_model extends CI_Model
 {
     private $_table = "header_document";
+    private $_table2 = "table1";
 
     public $header_document_id;
     public $name;
@@ -21,18 +22,19 @@ class Document_model extends CI_Model
         ];
     }
 
-    public function getAll()
-    {
+    public function getAll(){
         return $this->db->get($this->_table)->result();
     }
     
-    public function getById($id)
-    {
+    public function getById($id){
         return $this->db->get_where($this->_table, ["header_document_id" => $id])->row();
     }
 
-    public function save()
-    {
+    public function detail_all($id){
+        return $this->db->get($this->_table2)->result();
+    }
+
+    public function save(){
         $post = $this->input->post();
         $this->header_document_id = uniqid();
         $this->name = $post["name"];

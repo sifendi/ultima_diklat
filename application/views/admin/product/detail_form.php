@@ -20,9 +20,6 @@
 
 				<!-- DataTables -->
 				<div class="card mb-3">
-					<div class="card-header">
-						<a href="<?php echo site_url('admin/document/add') ?>"><i class="fas fa-plus"></i> Add New</a>
-					</div>
 					<div class="card-body">
 
 						<div class="table-responsive">
@@ -31,29 +28,16 @@
 									<tr>
 										<th>No</th>
 										<th>Name</th>
-										<th>Unit</th>
 										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
 									
-									<?php $no =1; foreach ($products as $product): ?>
+									<?php $no =1; foreach ($detail_table as $detail_table): ?>
 									<tr>
 										<td width="50"><?php echo $no ?></td>
 										<td width="350">
-											<?php echo $product->name ?>
-										</td>
-										<td width="50">
-											<?php echo "Unit ".$product->type_unit ?>
-										</td>
-										
-										<td width="300">
-											<a href="<?php echo site_url('admin/document/detail/'.$product->header_document_id) ?>"
-											 class="btn btn-small text-warning"><i class="fas fa-plus"></i> Detail</a>
-											<a href="<?php echo site_url('admin/document/edit/'.$product->header_document_id) ?>"
-											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-											<a onclick="deleteConfirm('<?php echo site_url('admin/document/delete/'.$product->header_document_id) ?>')"
-											 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+											<?php echo $detail_table->list ?>
 										</td>
 									</tr>
 									
