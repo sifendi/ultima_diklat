@@ -31,7 +31,7 @@ class User extends CI_Controller
 
     public function edit($id = null)
     {
-        if (!isset($id)) redirect('admin/document');
+        if (!isset($id)) redirect('admin/user');
        
         $product = $this->Master_user_model;
         $validation = $this->form_validation;
@@ -53,7 +53,7 @@ class User extends CI_Controller
         if (!isset($id)) show_404();
         
         if ($this->Master_user_model->delete($id)) {
-            redirect(site_url('admin/document'));
+            redirect(site_url('admin/user'));
         }
     }
 }

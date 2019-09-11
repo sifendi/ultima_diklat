@@ -28,33 +28,43 @@
 				<div class="card mb-3">
 					<div class="card-header">
 
-						<a href="<?php echo site_url('admin/products/') ?>"><i class="fas fa-arrow-left"></i>
+						<a href="<?php echo site_url('admin/user/') ?>"><i class="fas fa-arrow-left"></i>
 							Back</a>
 					</div>
 					<div class="card-body">
 
-						<form action="<?php base_url(" admin/product/edit") ?>" method="post"
+						<form action="<?php base_url(" admin/user/edit") ?>" method="post"
 							enctype="multipart/form-data" >
 
-							<input type="hidden" name="id" value="<?php echo $product->header_document_id?>" />
+							<input type="hidden" name="id" value="<?php echo $product->id_user?>" />
 
 							<div class="form-group">
 								<label for="name">Name*</label>
-								<input class="form-control <?php echo form_error('name') ? 'is-invalid':'' ?>"
-								 type="text" name="name" placeholder="Product name" value="<?php echo $product->name ?>" />
+								<input class="form-control <?php echo form_error('email') ? 'is-invalid':'' ?>"
+								 type="text" name="email" placeholder="Username" value="<?php echo $product->email ?>" />
 								<div class="invalid-feedback">
-									<?php echo form_error('name') ?>
+									<?php echo form_error('email') ?>
 								</div>
 							</div>
 
 							<div class="form-group">
-								<label for="price">Unit</label>
-								<input class="form-control <?php echo form_error('Unit') ? 'is-invalid':'' ?>"
-								 type="number" name="type_unit" min="0" placeholder="Unit" value="<?php echo $product->type_unit ?>" />
+								<label for="type_unit">Jenis User*</label>
+								<select  class="form-control" name="user_type" id="user_type" class="mdb-select md-form">
+									<option value="1">Unit 1</option>
+									<option value="2">Unit 2</option>
+									<option value="3">Unit 3</option>
+								</select>
+							</div>
+
+							<div class="form-group">
+								<label for="name">Password*</label>
+								<input class="form-control <?php echo form_error('password') ? 'is-invalid':'' ?>"
+								 type="text" name="password" placeholder="Password" value="<?php echo $product->password ?>" />
 								<div class="invalid-feedback">
-									<?php echo form_error('unit') ?>
+									<?php echo form_error('password') ?>
 								</div>
 							</div>
+
 
 							<input class="btn btn-success" type="submit" name="btn" value="Save" />
 						</form>

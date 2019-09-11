@@ -29,7 +29,7 @@
 						<a href="<?php echo site_url('admin/user/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
 					</div>
 					<div class="card-body">
-
+						<div class="alert alert-primary" role="alert">Password untuk user baru yaitu <b>diklat</b> apabila ingin merubahnya maka silahkan edit di menu yang sudah disediakan !</div>
 						<form action="<?php base_url('admin/user/add') ?>" method="post" enctype="multipart/form-data" >
 							<div class="form-group">
 								<label for="name">Username*</label>
@@ -48,7 +48,6 @@
 									<option value="3">Unit 3</option>
 								</select>
 							</div>
-
 
 							<input class="btn btn-success" type="submit" name="btn" value="Save" />
 						</form>

@@ -7,6 +7,7 @@ class Master_user_model extends CI_Model
     public $id_user;
     public $email;
     public $user_type;
+    public $password;
 
     public function rules()
     {
@@ -36,6 +37,7 @@ class Master_user_model extends CI_Model
         $post = $this->input->post();
         $this->email = $post["email"];
         $this->user_type = $post["user_type"];
+        $this->password = md5("diklat");
         $this->db->insert($this->_table, $this);
     }
 
@@ -45,6 +47,7 @@ class Master_user_model extends CI_Model
         $this->id_user = $post["id"];
         $this->email = $post["email"];
         $this->user_type = $post["user_type"];
+        $this->password = md5($post["password"]);
         $this->db->update($this->_table, $this, array('id_user' => $post['id']));
     }
 
