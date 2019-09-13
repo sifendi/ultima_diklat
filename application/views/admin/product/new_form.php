@@ -32,9 +32,9 @@
 
 						<form action="<?php base_url('admin/document/add') ?>" method="post" enctype="multipart/form-data" >
 							<div class="form-group">
-								<label for="name">Name*</label>
+								<label for="name">Keterangan*</label>
 								<input class="form-control <?php echo form_error('name') ? 'is-invalid':'' ?>"
-								 type="text" name="name" placeholder="Document name" />
+								 type="text" name="name" placeholder="Keterangan" />
 								<div class="invalid-feedback">
 									<?php echo form_error('name') ?>
 								</div>

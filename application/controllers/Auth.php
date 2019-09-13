@@ -33,6 +33,7 @@ class Auth extends CI_Controller {
 		}
 		else if ($data['user_type'] >= 2){
 			$this->session->set_userdata('user', $data);
+			
 			redirect('unit/document');
 		}
 		else{

@@ -2,26 +2,26 @@
 <html lang="en">
 
 <head>
-	<?php $this->load->view("admin/_partials/head.php") ?>
+	<?php $this->load->view("unit/_partials/head.php") ?>
 </head>
 
 <body id="page-top">
 
-	<?php $this->load->view("admin/_partials/navbar.php") ?>
+	<?php $this->load->view("unit/_partials/navbar.php") ?>
 	<div id="wrapper">
 
-		<?php $this->load->view("admin/_partials/sidebar.php") ?>
+		<?php $this->load->view("unit/_partials/sidebar.php") ?>
 
 		<div id="content-wrapper">
 
 			<div class="container-fluid">
 
-				<?php $this->load->view("admin/_partials/breadcrumb.php") ?>
+				<?php $this->load->view("unit/_partials/breadcrumb.php") ?>
 
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/document/add') ?>"><i class="fas fa-plus"></i> Add New</a>
+						<a href="<?php echo site_url('unit/document/add') ?>"><i class="fas fa-plus"></i> Add New</a>
 					</div>
 					<div class="card-body">
 
@@ -48,11 +48,11 @@
 										</td>
 										
 										<td width="300">
-											<a href="<?php echo site_url('admin/document/detail/'.$product->header_document_id) ?>"
+											<a href="<?php echo site_url('unit/document/detail/'.$product->header_document_id) ?>"
 											 class="btn btn-small text-warning"><i class="fas fa-plus"></i> Detail</a>
-											<a href="<?php echo site_url('admin/document/edit/'.$product->header_document_id) ?>"
+											<a href="<?php echo site_url('unit/document/edit/'.$product->header_document_id) ?>"
 											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-											<a onclick="deleteConfirm('<?php echo site_url('admin/document/delete/'.$product->header_document_id) ?>')"
+											<a onclick="deleteConfirm('<?php echo site_url('unit/document/delete/'.$product->header_document_id) ?>')"
 											 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
 										</td>
 									</tr>
@@ -69,7 +69,7 @@
 			<!-- /.container-fluid -->
 
 			<!-- Sticky Footer -->
-			<?php $this->load->view("admin/_partials/footer.php") ?>
+			<?php $this->load->view("unit/_partials/footer.php") ?>
 
 		</div>
 		<!-- /.content-wrapper -->
@@ -78,10 +78,10 @@
 	<!-- /#wrapper -->
 
 
-	<?php $this->load->view("admin/_partials/scrolltop.php") ?>
-	<?php $this->load->view("admin/_partials/modal.php") ?>
+	<?php $this->load->view("unit/_partials/scrolltop.php") ?>
+	<?php $this->load->view("unit/_partials/modal.php") ?>
 
-	<?php $this->load->view("admin/_partials/js.php") ?>
+	<?php $this->load->view("unit/_partials/js.php") ?>
 
 	<script>
 	function deleteConfirm(url){

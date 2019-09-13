@@ -2,21 +2,21 @@
 <html lang="en">
 
 <head>
-	<?php $this->load->view("admin/_partials/head.php") ?>
+	<?php $this->load->view("unit/_partials/head.php") ?>
 </head>
 
 <body id="page-top">
 
-	<?php $this->load->view("admin/_partials/navbar.php") ?>
+	<?php $this->load->view("unit/_partials/navbar.php") ?>
 	<div id="wrapper">
 
-		<?php $this->load->view("admin/_partials/sidebar.php") ?>
+		<?php $this->load->view("unit/_partials/sidebar.php") ?>
 
 		<div id="content-wrapper">
 
 			<div class="container-fluid">
 
-				<?php $this->load->view("admin/_partials/breadcrumb.php") ?>
+				<?php $this->load->view("unit/_partials/breadcrumb.php") ?>
 
 				<!-- DataTables -->
 				<div class="card mb-3">
@@ -50,13 +50,13 @@
 											$sql ="select * from files where table_id = '$data1->id_table'" ;
 											$query = $this->db->query($sql);
 											if ($query->num_rows() > 0) {?>
-												<a target="_blank" href="http://localhost/ultima_diklat/berkas/" class="btn btn-small text-default"></i> View</a>
+												<a href="" class="btn btn-small text-default"></i> View</a>
 											<?php }else{?>
 												<a href="" class="btn btn-small text-danger"></i> Kosong</a>
 											<?php }?>
 										</td>
 										<td>
-											<a data-toggle="modal" data-target="#modal_add_new<?=$data1->id_table;?>" href="<?php echo site_url('admin/document/detail/'.$data1->id_table) ?>"
+											<a data-toggle="modal" data-target="#modal_add_new<?=$data1->id_table;?>" href="<?php echo site_url('unit/document/detail/'.$data1->id_table) ?>"
 											 class="btn btn-small text-success"><i class="fas fa-plus"></i> Upload</a>
 										</td>
 									</tr>
@@ -88,7 +88,7 @@
 											<?php }?>
 										</td>
 										<td>
-											<a data-toggle="modal" data-target="#modal_add_new<?=$data1->id_table;?>" href="<?php echo site_url('admin/document/detail/'.$data1->id_table) ?>"
+											<a data-toggle="modal" data-target="#modal_add_new<?=$data1->id_table;?>" href="<?php echo site_url('unit/document/detail/'.$data1->id_table) ?>"
 											 class="btn btn-small text-success"><i class="fas fa-plus"></i> Upload</a>
 										</td>
 									</tr>
@@ -103,7 +103,7 @@
 			<!-- /.container-fluid -->
 
 			<!-- Sticky Footer -->
-			<?php $this->load->view("admin/_partials/footer.php") ?>
+			<?php $this->load->view("unit/_partials/footer.php") ?>
 
 		</div>
 		<!-- /.content-wrapper -->
@@ -112,7 +112,7 @@
 	<!-- /#wrapper -->
 
 
-
+</body>
 
 
 
@@ -123,7 +123,6 @@
   <div id="modal_add_new<?=$row->id_table;?>" class="modal fade">
     <div class="modal-dialog">
       <!-- <form onsubmit="store()" id="form_create_bp" method="post" enctype="multipart/form-data"> -->
-      
       <form class="form-horizontal" id="submit">
       <!-- <form action="<?php echo site_url('Modal/edit'); ?>" method="post" enctype="multipart/form-data"> -->
       <div class="modal-content">
@@ -140,7 +139,7 @@
          <div class="form-group">
          	<label class="control-label col-xs-3" >Attachment</label>
             <div class="col-xs-8">
-            <input name="file_name_berkas" class="form-control" type="file"  required>
+            <input name="file_path" class="form-control" type="file"  required>
             </div>
         </div>
         <div class="form-group">
@@ -154,7 +153,7 @@
 
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			<button class="btn btn-success" id="btn_upload" type="submit">Upload</button>
+            <button class="btn btn-success" id="btn_upload" type="submit">Upload</button>
           </div>
         </form>
     </div>
@@ -172,48 +171,43 @@
 
 
 
-<!-- 
-	<script type="text/javascript" src="<?php echo base_url().'assets/uploadjs/jquery-3.2.1.js'?>"></script>
-	<script type="text/javascript" src="<?php echo base_url().'assets/uploadjs/bootstrap.js'?>"></script>
+	<?php $this->load->view("unit/_partials/scrolltop.php") ?>
+	<?php $this->load->view("unit/_partials/modal.php") ?>
 
+	<?php $this->load->view("unit/_partials/js.php") ?>
+
+
+
+	<script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery-3.2.1.js' ?>"></script>
+	<script type="text/javascript" src="<?php echo base_url() . 'assets/js/bootstrap.js' ?>"></script>
 	<script type="text/javascript">
-		alert("0000");
-	$(document).ready(function(){
-		alert("1111111111111");
-		$('#submit').submit(function(e){
-			alert("");
-		    e.preventDefault();
+	
 
-		    var formData = new FormData,
-		    formData.append("file_name_berkas", $("[name=file_name_berkas]").prop("files")[0]),
-		    var file_ = $("[name=file_name_berkas]").prop("files")[0],
-		    formData.append("name", file_),
+	    $(document).ready(function() {
+	        alert('jalan1');
+	        $('#submit').submit(function(e) {
+	        alert('jalan2');
+	            e.preventDefault();
+	            $.ajax({
+	                url: '<?php echo base_url(); ?>index.php/unit/document/do_upload',
+	                type: "post",
+	                data: new FormData(this),
+	                processData: false,
+	                contentType: false,
+	                cache: false,
+	                async: false,
+	                success: function(data) {
+	                    alert("Upload Berkas Berhasil.");
+	                     window.location = 'http://localhost/ultima_diklat/index.php/unit/document';
+	                }
+	            });
+	        });
 
-		         $.ajax({
-		             url:'<?php echo base_url();?>index.php/admin/document/do_upload_fix',
-		             type:"post",
-		             data:new FormData(this),
-		             processData:false,
-		             contentType:false,
-		             cache:false,
-		             async:false,
-		              success: function(data){
-		                  alert("Upload Image Berhasil.");
-		           }
-		         });
-		    });
-		
+	    });
 
-	});
 	</script>
- -->
 
 
-	<?php $this->load->view("admin/_partials/js.php") ?>
-	<?php $this->load->view("admin/_partials/scrolltop.php") ?>
-	<?php $this->load->view("admin/_partials/modal.php") ?> 
 
-
-</body>
 
 </html>
