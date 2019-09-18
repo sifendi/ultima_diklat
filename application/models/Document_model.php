@@ -4,6 +4,7 @@ class Document_model extends CI_Model
 {
     private $_table = "header_document";
     private $_table2 = "table1";
+    private $_table3 = "files";
 
     public $header_document_id;
     public $name;
@@ -45,6 +46,27 @@ class Document_model extends CI_Model
     public function detail_kelompok2(){
         return $this->db->get_where($this->_table2, ["kelompok" => 2])->result();
     }
+    public function detail_kelompok3(){
+        return $this->db->get_where($this->_table2, ["kelompok" => 3])->result();
+    }
+    public function detail_kelompok4(){
+        return $this->db->get_where($this->_table2, ["kelompok" => 4])->result();
+    }
+    public function detail_kelompok5(){
+        return $this->db->get_where($this->_table2, ["kelompok" => 5])->result();
+    }
+    public function detail_kelompok6(){
+        return $this->db->get_where($this->_table2, ["kelompok" => 6])->result();
+    }
+    public function detail_kelompok7(){
+        return $this->db->get_where($this->_table2, ["kelompok" => 7])->result();
+    }
+    public function detail_kelompok8(){
+        return $this->db->get_where($this->_table2, ["kelompok" => 8])->result();
+    }
+
+
+
 
     public function save(){
         $post = $this->input->post();
@@ -67,6 +89,12 @@ class Document_model extends CI_Model
     {
         return $this->db->delete($this->_table, array("header_document_id" => $id));
     }
+
+    public function delete_file($id, $header)
+    {
+        return $this->db->delete($this->_table3, array("header_document_id" => $header,"table_id" => $id));
+    }
+
 
 
 

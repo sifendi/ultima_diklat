@@ -27,11 +27,11 @@ class Auth extends CI_Controller {
 		$password = $_POST['password'];
 		$data = $this->users_model->login($email, md5($password));
 
-		if($data['user_type']==1){
+		if($data['user_type']==999){
 			$this->session->set_userdata('user', $data);
 			redirect('admin/document');
 		}
-		else if ($data['user_type'] >= 2){
+		else if ($data['user_type'] == 1 || $data['user_type'] ==2 || $data['user_type'] ==3){
 			$this->session->set_userdata('user', $data);
 			
 			redirect('unit/document');

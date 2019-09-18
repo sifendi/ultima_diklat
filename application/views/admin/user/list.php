@@ -47,12 +47,17 @@
 											<?php echo "Unit ".$user->user_type ?>
 										</td>
 										
-										<td width="300">
-											<a href="<?php echo site_url('admin/user/edit/'.$user->id_user) ?>"
-											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-											<a onclick="deleteConfirm('<?php echo site_url('admin/user/delete/'.$user->id_user) ?>')"
-											 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
-										</td>
+										<?php if($user->user_type >3){?>
+
+										<?php }else{?>
+
+											<td width="300">
+												<a href="<?php echo site_url('admin/user/edit/'.$user->id_user) ?>"
+												 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
+												<a onclick="deleteConfirm('<?php echo site_url('admin/user/delete/'.$user->id_user) ?>')"
+												 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+											</td>
+										<?php }?>
 									</tr>
 									
 									<?php $no++; endforeach; ?>

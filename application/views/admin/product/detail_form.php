@@ -88,7 +88,7 @@
 											<?php }?>
 										</td>
 										<td>
-											<a data-toggle="modal" data-target="#modal_add_new<?=$data1->id_table;?>" href="<?php echo site_url('admin/document/detail/'.$data1->id_table) ?>"
+											<a data-toggle="modal" data-target="#modal_add_new<?=$data2->id_table;?>" href="<?php echo site_url('admin/document/detail/'.$data2->id_table) ?>"
 											 class="btn btn-small text-success"><i class="fas fa-plus"></i> Upload</a>
 										</td>
 									</tr>
@@ -117,15 +117,80 @@
 
 
 <!-- /////////////////////modal/////////////////// -->
+<!-- Ini ada pengulangan Modal mas -->
+<!-- iyo iku kanggo jukuk value ne dari button detail sing nang main  -->
 
-<?php $no=0; foreach($detail_table1 as $row): $no++; ?>
-<div class="row">
+<!-- Main attribute class & data mas biasanya kalau ada modal begini -->
+<!-- <?php $no=0; foreach($detail_table1 as $row): $no++; ?>  -->
+
+<!-- <?php endforeach; ?> -->
+
+
+
+<!-- 
+piye bay
+sorry
+
+Iki Modale perbaris a mas ?
+menu endi mas ?
+ -->
+
+
+
+
+
+
+	<!-- <script type="text/javascript" src="<?php echo base_url().'assets/uploadjs/jquery-3.2.1.js'?>"></script> -->
+	<script type="text/javascript" src="<?php echo base_url().'assets/uploadjs/bootstrap.js'?>"></script>
+
+	<script type="text/javascript">
+		// alert("0000");
+	$(document).ready(function(){
+		// alert("1111111111111");
+		// $('#submit').submit(function(e){
+		// 	alert("");
+		//     e.preventDefault();
+
+		//     var formData = new FormData,
+		//     formData.append("file_name_berkas", $("[name=file_name_berkas]").prop("files")[0]),
+		//     var file_ = $("[name=file_name_berkas]").prop("files")[0],
+		//     formData.append("name", file_),
+
+		//          $.ajax({
+		//              url:'<?php echo base_url();?>index.php/admin/document/do_upload_fix',
+		//              type:"post",
+		//              data:new FormData(this),
+		//              processData:false,
+		//              contentType:false,
+		//              cache:false,
+		//              async:false,
+		//               success: function(data){
+		//                   alert("Upload Image Berhasil.");
+		//            }
+		//          });
+		//     });
+
+		$(".b"tn)
+
+
+
+	});
+	</script>
+
+
+
+	<?php $this->load->view("admin/_partials/js.php") ?>
+	<?php $this->load->view("admin/_partials/scrolltop.php") ?>
+	<?php $this->load->view("admin/_partials/modal.php") ?> 
+
+
+</body>
+
+
+<!-- <div class="row">
   <div id="modal_add_new<?=$row->id_table;?>" class="modal fade">
-    <div class="modal-dialog">
-      <!-- <form onsubmit="store()" id="form_create_bp" method="post" enctype="multipart/form-data"> -->
-      
+    <div class="modal-dialog">      
       <form class="form-horizontal" id="submit">
-      <!-- <form action="<?php echo site_url('Modal/edit'); ?>" method="post" enctype="multipart/form-data"> -->
       <div class="modal-content">
         <div class="modal-header bg-warning">
           <h4 class="modal-title">Upload Berkas</h4>
@@ -159,61 +224,6 @@
         </form>
     </div>
   </div>
-</div>
-<?php endforeach; ?>
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-	<script type="text/javascript" src="<?php echo base_url().'assets/uploadjs/jquery-3.2.1.js'?>"></script>
-	<script type="text/javascript" src="<?php echo base_url().'assets/uploadjs/bootstrap.js'?>"></script>
-
-	<script type="text/javascript">
-		alert("0000");
-	$(document).ready(function(){
-		alert("1111111111111");
-		$('#submit').submit(function(e){
-			alert("");
-		    e.preventDefault();
-
-		    var formData = new FormData,
-		    formData.append("file_name_berkas", $("[name=file_name_berkas]").prop("files")[0]),
-		    var file_ = $("[name=file_name_berkas]").prop("files")[0],
-		    formData.append("name", file_),
-
-		         $.ajax({
-		             url:'<?php echo base_url();?>index.php/admin/document/do_upload_fix',
-		             type:"post",
-		             data:new FormData(this),
-		             processData:false,
-		             contentType:false,
-		             cache:false,
-		             async:false,
-		              success: function(data){
-		                  alert("Upload Image Berhasil.");
-		           }
-		         });
-		    });
-		
-
-	});
-	</script>
- -->
-
-
-	<?php $this->load->view("admin/_partials/js.php") ?>
-	<?php $this->load->view("admin/_partials/scrolltop.php") ?>
-	<?php $this->load->view("admin/_partials/modal.php") ?> 
-
-
-</body>
+</div> -->
 
 </html>
